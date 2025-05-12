@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest-style Image Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .masonry-grid {
+            column-gap: 1rem;
+            column-count: 1;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 4;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        .masonry-item img {
+            width: 100%;
+            border-radius: 0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-6">Galerie d'images style Pinterest</h1>
+        <div class="masonry-grid">
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/400" alt="Image 1">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/600" alt="Image 2">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/300" alt="Image 3">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/500" alt="Image 4">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/700" alt="Image 5">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/350" alt="Image 6">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/450" alt="Image 7">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/550" alt="Image 8">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/200" alt="Image 9">
+            </div>
+            <div class="masonry-item">
+                <img src="https://picsum.photos/300/800" alt="Image 10">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

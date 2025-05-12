@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest-style Image Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .masonry-grid {
+            column-gap: 1rem;
+            column-count: 1;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 4;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        .masonry-item img {
+            width: 100%;
+            border-radius: 0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-6">Galerie d'images style Pinterest</h1>
+        <div class="masonry-grid" id="masonry-grid">
+            <!-- Les images seront ajoutées par JavaScript -->
+        </div>
+        <button onclick="addImages()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Ajouter 10 images</button>
+    </div>
+
+    <script>
+        const heights = [150, 200, 250, 300, 350, 400, 450, 500, 550, 600]; // Liste des hauteurs possibles
+        let imageCount = 1;
+
+        function addImages() {
+            const grid = document.getElementById('masonry-grid');
+            for (let i = 0; i < 10; i++) {
+                const height = heights[Math.floor(Math.random() * heights.length)]; // Hauteur aléatoire
+                const item = document.createElement('div');
+                item.className = 'masonry-item';
+                item.style.height = `${height}px`;
+                item.innerHTML = `<img src="pdg.jpg" alt="Image ${imageCount}" class="w-full h-full object-cover">`;
+                grid.appendChild(item);
+                imageCount++;
+            }
+        }
+
+        // Ajouter les 10 premières images au chargement
+        addImages();
+    </script>
+</body
